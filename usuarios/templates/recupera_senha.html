@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'title' %}Recupera senha{% endblock  %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'usuarios/css/cadastro.css' %}">
+{% endblock  %}
+
+{% block 'aside' %}
+
+    <div class="header">
+        <img src="{% static 'usuarios/img/logo_adote.png' %}" alt="logo adote">
+        <span class="font-logo">ADO.TE</span>
+    </div>
+
+    <div class="body-form">
+                        
+        <h2>Recuperar senha</h2>
+        <p>Estamos aqui para lhe ajudar.</p>
+        <hr>
+        <form action="{% url 'recuperar_senha' %}" method="POST" class="mb-4">
+            {% csrf_token %}
+            
+            <span>E-mail:</span>
+            <input type="email" class="form-control" placeholder="Digite seu e-mail..." name="email" required autofocus>
+            
+            <div class="botoes-form-recupera">
+                <input type="submit" value="RECUPERAR" class="btn-custom-primary mt-0">
+                <p class="my-0">Lembrou da senha? &nbsp;<a href="{% url 'logar' %}">Logue-se</a></p>
+            </div>
+        </form>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{message.tags}} mt-4">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+{% endblock  %}
+
+{% block 'section' %}
+
+    <div class="side-logo">
+        <img class="logo-margin-top" src="{% static 'usuarios/img/logo_adote.png' %}">
+        <h1>ADO.TE</h1>
+        <p>Nos ajude a salvar vidas.</p>
+    </div>
+
+{% endblock  %}
+

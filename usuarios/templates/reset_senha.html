@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'title' %}Redefinir senha{% endblock  %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'usuarios/css/cadastro.css' %}">
+{% endblock  %}
+
+{% block 'aside' %}
+
+    <div class="header">
+        <img src="{% static 'usuarios/img/logo_adote.png' %}" alt="logo adote">
+        <span class="font-logo">ADO.TE</span>
+    </div>
+
+    <div class="body-form">
+                        
+        <h2>Redefinir senha</h2>
+        <p>Lembre-se, senha é pessoal.</p>
+        <hr>
+        <form action="{% url 'redefinir_senha' token %}" method="POST" class="mb-4">
+            {% csrf_token %}
+            <div class="row senhas">
+                <div class="col-md">
+                    <span>Nova Senha:</span>
+                    <input type="password" class="form-control" placeholder="Digite sua senha..." name="nova_senha">
+                </div>
+                <div class="col-md">
+                    <span>Confirmar nova senha:</span>
+                    <input type="password" class="form-control" placeholder="Digite sua senha..." name="confirmar_nova_senha">
+                </div>
+            </div>
+            <div class="botoes-form-recupera">
+                <input type="submit" value="ENVIAR" class="btn-custom-primary mt-0">
+                <p class="my-0">Lembrou da senha? &nbsp;<a href="{% url 'logar' %}">Logue-se</a></p>
+            </div>
+        </form>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{message.tags}} mt-4">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+{% endblock  %}
+
+{% block 'section' %}
+
+    <div class="side-logo">
+        <img class="logo-margin-top" src="{% static 'usuarios/img/logo_adote.png' %}">
+        <h1>ADO.TE</h1>
+        <p>Nos ajude a salvar vidas.</p>
+    </div>
+
+{% endblock  %}
+
