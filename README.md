@@ -10,6 +10,16 @@ Projeto desenvolvido com objetivo de ajudar pessoas com pets para doar e pessoas
 
 ##
 
+<h2>Algumas funcionalidades</h2><br>
+<p>Cadastro de Usuarios
+<p>Sistema de Login
+<p>Cadastro de Pets
+<p>Solicitar Adoção de Pet
+<p>Enviar Email ao Solicitar/confirmar adoção
+<p>Listar e filtar Pets Disponivel para adoção
+
+##
+
 <h2> Instalação requisitos</h2><br>
 <p>Necessita do Python instaldo
 <p>pip install django
